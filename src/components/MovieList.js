@@ -47,11 +47,14 @@ export default function MovieList() {
       {movies.map(movie => (
         <Container>
           <MovieImage
+            key={movie.poster_path}
             src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
             alt=""
           />
           <MovieTitle key={movie.id}>{movie.title}</MovieTitle>
-          <MovieDescription>{movie.overview}</MovieDescription>
+          <MovieDescription key={movie.overview}>
+            {movie.overview}
+          </MovieDescription>
         </Container>
       ))}
     </>
