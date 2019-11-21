@@ -45,16 +45,13 @@ export default function MovieList() {
   return (
     <>
       {movies.map(movie => (
-        <Container>
+        <Container key={movie.id}>
           <MovieImage
-            key={movie.poster_path}
             src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
             alt=""
           />
-          <MovieTitle key={movie.id}>{movie.title}</MovieTitle>
-          <MovieDescription key={movie.overview}>
-            {movie.overview}
-          </MovieDescription>
+          <MovieTitle>{movie.title}</MovieTitle>
+          <MovieDescription>{movie.overview}</MovieDescription>
         </Container>
       ))}
     </>
